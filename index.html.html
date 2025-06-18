@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoNomad SpA - Soluciones de Cartografía y SIG</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #334155; /* slate-700 por defecto */
+        }
+        .hero-bg {
+            background-image: url('https://i.ibb.co/HDtbSjWC/Pichilemu-web.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .section-title {
+            @apply text-3xl md:text-4xl font-bold text-slate-800 text-center;
+        }
+        .section-subtitle {
+            @apply mt-2 text-lg text-slate-600 text-center max-w-2xl mx-auto;
+        }
+        /* Clase para los íconos con fondo circular */
+        .icon-circle {
+            @apply flex items-center justify-center w-16 h-16 rounded-full text-sky-600 bg-sky-100 mb-4;
+        }
+        /* Estilos para las listas con checkmark */
+        .checklist-item {
+            @apply flex items-center text-slate-600 mb-2;
+        }
+        .checklist-item svg {
+            @apply text-sky-500 mr-2 flex-shrink-0;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-slate-800">
+                Geo<span class="text-sky-600">Nomad</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#hero" class="hover:text-sky-600 transition-colors">Inicio</a>
+                <a href="#services" class="hover:text-sky-600 transition-colors">Servicios</a>
+                <a href="#benefits" class="hover:text-sky-600 transition-colors">Beneficios</a>
+                <a href="#experience" class="hover:text-sky-600 transition-colors">Experiencia</a>
+                <a href="#contact" class="bg-sky-600 text-white px-4 py-2 rounded-lg hover:bg-sky-700 transition-colors shadow">
+                    Cotizar Ahora
+                </a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-slate-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <a href="#hero" class="block py-2 px-4 text-sm hover:bg-slate-100">Inicio</a>
+            <a href="#services" class="block py-2 px-4 text-sm hover:bg-slate-100">Servicios</a>
+            <a href="#benefits" class="block py-2 px-4 text-sm hover:bg-slate-100">Beneficios</a>
+            <a href="#experience" class="block py-2 px-4 text-sm hover:bg-slate-100">Experiencia</a>
+            <a href="#contact" class="block py-2 px-4 text-sm bg-sky-100 hover:bg-sky-200">Cotizar Ahora</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-bg text-white">
+            <div class="bg-slate-900/60 py-20 md:py-32 flex items-center">
+                <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <p class="text-sky-300 font-semibold mb-2">Bienvenidos a GeoNomad SpA</p>
+                        <h1 class="text-4xl md:text-5xl font-black leading-tight mb-4">Más que mapas: creamos soluciones territoriales inteligentes</h1>
+                        <p class="text-lg md:text-xl text-slate-300 mb-6">
+                            GeoNomad SpA es la empresa chilena especializada en cartografía digital, sistemas de información geográfica (SIG) y planificación territorial.
+                        </p>
+                        <p class="text-md text-slate-300 mb-6">
+                            Desde el corazón de Pichilemu, ofrecemos soluciones innovadoras para empresas, municipios y emprendimientos turísticos. Combinamos tecnología, experiencia forestal y visión creativa para mapear, analizar y conectar territorios de forma inteligente.
+                        </p>
+                        <div class="flex flex-wrap gap-4 text-sky-200 font-medium">
+                            <span class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                                5 años de experiencia
+                            </span>
+                            <span class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Proyectos en todo Chile
+                            </span>
+                        </div>
+                    </div>
+                    <div class="relative bg-white rounded-lg shadow-xl p-6 text-center max-w-sm mx-auto md:max-w-none">
+                        <span class="absolute top-4 left-1/2 -translate-x-1/2 bg-sky-100 text-sky-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">Contenido insertado</span>
+                        <img src="https://i.postimg.cc/dQyXXSZ3/Screenshot-20250618-131250-Instagram.jpg" alt="José Luis Saavedra, Fundador y Cartógrafo Senior" class="rounded-lg w-full h-auto object-cover mb-4 mt-6" loading="lazy">
+                        <h3 class="text-xl font-bold text-slate-800">José Luis Saavedra</h3>
+                        <p class="text-sky-600 font-semibold text-sm">Fundador & Cartógrafo Senior</p>
+                        <p class="text-slate-600 text-sm mt-2">Especialista en cartografía digital con más de 5 años transformando datos geográficos en soluciones prácticas para diversos sectores.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <span class="bg-sky-100 text-sky-700 text-sm font-medium px-4 py-1 rounded-full mb-4 inline-block">Nuestros Servicios</span>
+                    <h2 class="section-title">Soluciones Geoespaciales Completas</h2>
+                    <p class="section-subtitle">
+                        Ofrecemos servicios especializados de cartografía y análisis geográfico para potenciar la toma de decisiones en su territorio.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
+                    <div class="bg-slate-50 rounded-lg shadow-md p-8 hover:shadow-xl transition-shadow transform hover:-translate-y-1">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Actualización Cartográfica</h3>
+                        <p class="text-slate-600 mb-4">Actualización detallada de polígonos, drenajes, caminos y superficies productivas con la más alta precisión.</p>
+                        <ul class="space-y-2">
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Mapeo de límites prediales
+                            </li>
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Identificación de rodales
+                            </li>
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Cartografía de caminos y accesos
+                            </li>
+                        </ul>
+                        <a href="#contact" class="mt-6 text-sky-600 font-semibold flex items-center group">
+                            Solicitar información 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-lg shadow-md p-8 hover:shadow-xl transition-shadow transform hover:-translate-y-1">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Planes de Manejo Forestal</h3>
+                        <p class="text-slate-600 mb-4">Elaboración de planes de manejo para corta forestal, cumpliendo normativas vigentes y orientado a la planificación eficiente.</p>
+                        <ul class="space-y-2">
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Cumplimiento normativo CONAF
+                            </li>
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Planificación de cosechas
+                            </li>
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Gestión sostenible de recursos
+                            </li>
+                        </ul>
+                        <a href="#contact" class="mt-6 text-sky-600 font-semibold flex items-center group">
+                            Solicitar información 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-lg shadow-md p-8 hover:shadow-xl transition-shadow transform hover:-translate-y-1">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trello"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="9"></rect><rect x="14" y="7" width="3" height="5"></rect></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Modelamiento Territorial</h3>
+                        <p class="text-slate-600 mb-4">Levantamiento de drenajes y modelamiento territorial para proyectos forestales y ambientales con alta precisión.</p>
+                        <ul class="space-y-2">
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Análisis hidrográfico
+                            </li>
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Modelos de elevación digital
+                            </li>
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Evaluación de cuencas
+                            </li>
+                        </ul>
+                        <a href="#contact" class="mt-6 text-sky-600 font-semibold flex items-center group">
+                            Solicitar información 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-lg shadow-md p-8 hover:shadow-xl transition-shadow transform hover:-translate-y-1">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-database"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M21 19c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Procesamiento de Datos</h3>
+                        <p class="text-slate-600 mb-4">Procesamiento técnico de archivos geográficos: KMZ, KML, SHP, GeoTIFF y otros formatos especializados.</p>
+                        <ul class="space-y-2">
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Conversión entre formatos
+                            </li>
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Depuración y corrección
+                            </li>
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Integración con plataformas SIG
+                            </li>
+                        </ul>
+                        <a href="#contact" class="mt-6 text-sky-600 font-semibold flex items-center group">
+                            Solicitar información 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-lg shadow-md p-8 hover:shadow-xl transition-shadow transform hover:-translate-y-1">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Monitoreo Geoespacial</h3>
+                        <p class="text-slate-600 mb-4">Seguimiento digital y actualización de áreas productivas, con monitoreo continuo de la actividad forestal o territorial.</p>
+                        <ul class="space-y-2">
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Seguimiento de cambios
+                            </li>
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Reportes periódicos
+                            </li>
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Alertas de modificaciones
+                            </li>
+                        </ul>
+                        <a href="#contact" class="mt-6 text-sky-600 font-semibold flex items-center group">
+                            Solicitar información 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-lg shadow-md p-8 hover:shadow-xl transition-shadow transform hover:-translate-y-1">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tool"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-3.77 3.77a1 1 0 0 1-1.4 0l-1.6-1.6a1 1 0 0 0 0-1.4l3.77-3.77a6 6 0 0 1 7.94-7.94z"></path><path d="M21 21l-1.6-1.6"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Soluciones Personalizadas</h3>
+                        <p class="text-slate-600 mb-4">Desarrollo de soluciones cartográficas a medida para necesidades específicas de su empresa o proyecto.</p>
+                        <ul class="space-y-2">
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Consultoría especializada
+                            </li>
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Proyectos a medida
+                            </li>
+                            <li class="checklist-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Capacitación en herramientas SIG
+                            </li>
+                        </ul>
+                        <a href="#contact" class="mt-6 text-sky-600 font-semibold flex items-center group">
+                            Solicitar información 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="benefits" class="py-16 md:py-24 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <span class="bg-sky-100 text-sky-700 text-sm font-medium px-4 py-1 rounded-full mb-4 inline-block">Por Qué Elegirnos</span>
+                    <h2 class="section-title">Beneficios de Trabajar con GeoNomad</h2>
+                    <p class="section-subtitle">
+                        Descubra cómo nuestras soluciones cartográficas pueden transformar su gestión territorial y potenciar sus proyectos.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mt-12">
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-start space-x-4">
+                        <div class="icon-circle flex-shrink-0 !mb-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Precisión y Confiabilidad</h3>
+                            <p class="text-slate-600">Utilizamos tecnología de vanguardia y metodologías probadas para garantizar la máxima precisión en todos nuestros productos cartográficos.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-start space-x-4">
+                        <div class="icon-circle flex-shrink-0 !mb-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Rapidez de Entrega</h3>
+                            <p class="text-slate-600">Entendemos la importancia de los plazos en sus proyectos. Nos comprometemos con tiempos de entrega ágiles sin sacrificar la calidad.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-start space-x-4">
+                        <div class="icon-circle flex-shrink-0 !mb-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Excelente Relación Costo-Beneficio</h3>
+                            <p class="text-slate-600">Ofrecemos soluciones competitivas que maximizan el retorno de su inversión, adaptándonos a diferentes presupuestos sin comprometer resultados.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-start space-x-4">
+                        <div class="icon-circle flex-shrink-0 !mb-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Atención Personalizada</h3>
+                            <p class="text-slate-600">Cada cliente recibe un trato directo y personalizado. Trabajamos estrechamente con usted para entender sus necesidades específicas.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-start space-x-4">
+                        <div class="icon-circle flex-shrink-0 !mb-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Conocimiento Local</h3>
+                            <p class="text-slate-600">Nuestra ubicación en Pichilemu nos brinda un profundo conocimiento del territorio chileno, especialmente en zonas forestales y costeras.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 flex items-start space-x-4">
+                        <div class="icon-circle flex-shrink-0 !mb-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.5 7c.34-1.11 1.2-2.02 2.5-2.73 1.5-1.1 3.6-1.5 5.5-1.12 2.7.53 4.7 2.78 4.7 5.57A8 8 0 0 1 10 20.9M20.5 17c-.34 1.11-1.2 2.02-2.5 2.73-1.5 1.1-3.6 1.5-5.5 1.12-2.7-.53-4.7-2.78-4.7-5.57A8 8 0 0 1 14 3.09"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Soluciones Integrales</h3>
+                            <p class="text-slate-600">Ofrecemos un servicio completo desde la captura de datos hasta la implementación de soluciones SIG, evitando la necesidad de múltiples proveedores.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <span class="bg-sky-100 text-sky-700 text-sm font-medium px-4 py-1 rounded-full mb-4 inline-block">Nuestra Experiencia</span>
+                    <h2 class="section-title">5 Años Transformando Territorios</h2>
+                    <p class="section-subtitle">
+                        Bajo el liderazgo de José Luis Saavedra, GeoNomad ha desarrollado proyectos cartográficos para diversos sectores, aportando soluciones innovadoras y precisas que han transformado la gestión territorial de nuestros clientes.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center mt-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-5xl font-extrabold text-sky-600 mb-2">+50</p>
+                        <p class="text-slate-700 text-lg">Proyectos Completados</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-5xl font-extrabold text-sky-600 mb-2">+30</p>
+                        <p class="text-slate-700 text-lg">Clientes Satisfechos</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-5xl font-extrabold text-sky-600 mb-2">5+</p>
+                        <p class="text-slate-700 text-lg">Años de Experiencia</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-5xl font-extrabold text-sky-600 mb-2">3</p>
+                        <p class="text-slate-700 text-lg">Regiones Cubiertas</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12 flex flex-wrap justify-center gap-3">
+                    <span class="bg-slate-200 text-slate-700 px-4 py-2 rounded-full text-sm font-medium">Forestal</span>
+                    <span class="bg-slate-200 text-slate-700 px-4 py-2 rounded-full text-sm font-medium">Municipal</span>
+                    <span class="bg-slate-200 text-slate-700 px-4 py-2 rounded-full text-sm font-medium">Turismo</span>
+                    <span class="bg-slate-200 text-slate-700 px-4 py-2 rounded-full text-sm font-medium">Agricultura</span>
+                    <span class="bg-slate-200 text-slate-700 px-4 py-2 rounded-full text-sm font-medium">Inmobiliario</span>
+                    <span class="bg-slate-200 text-slate-700 px-4 py-2 rounded-full text-sm font-medium">Ambiental</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-sky-600 text-white py-16 md:py-20 text-center">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Necesita una solución cartográfica específica?</h2>
+                <p class="text-lg text-sky-100 max-w-3xl mx-auto mb-8">
+                    Contáctenos para discutir su proyecto y recibir una propuesta personalizada sin compromiso.
+                </p>
+                <a href="#contact" class="bg-white text-sky-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-100 transition-colors shadow-lg transform hover:scale-105 inline-flex items-center">
+                    Solicitar Cotización 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <span class="bg-sky-100 text-sky-700 text-sm font-medium px-4 py-1 rounded-full mb-4 inline-block">Contáctenos</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">¿Listo para Transformar su Territorio?</h2>
+                    <p class="text-lg text-slate-600 mb-8">
+                        Solicite una cotización sin compromiso y descubra cómo nuestras soluciones cartográficas pueden potenciar su proyecto o negocio.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="icon-circle !w-12 !h-12 flex-shrink-0 !mb-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2.01l-2.43-0.41a2 2 0 0 0-1.66.62l-3.66 3.66a20 20 0 0 1-10.43-10.43l3.66-3.66a2 2 0 0 0 .62-1.66L19.99 2A2 2 0 0 1 22 4.09z"></path></svg>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-slate-700 font-semibold">Teléfono</p>
+                                <a href="tel:+56958620105" class="text-sky-600 hover:underline">+56 9 58620105</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="icon-circle !w-12 !h-12 flex-shrink-0 !mb-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-slate-700 font-semibold">Email</p>
+                                <a href="mailto:jsaavedra581@gmail.com" class="text-sky-600 hover:underline">jsaavedra581@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="icon-circle !w-12 !h-12 flex-shrink-0 !mb-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-slate-700 font-semibold">Dirección</p>
+                                <p class="text-slate-600">Dionisio Acevedo 811, Pichilemu, Región de O'Higgins</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-xl">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6">Solicite una Cotización</h3>
+                    <form action="https://formspree.io/f/meokzvnb" method="POST" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-slate-700 text-sm font-bold mb-2">Nombre:</label>
+                                <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="Su nombre" required>
+                            </div>
+                            <div>
+                                <label for="company" class="block text-slate-700 text-sm font-bold mb-2">Empresa:</label>
+                                <input type="text" id="company" name="company" class="shadow appearance-none border rounded w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="Nombre de su empresa">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-slate-700 text-sm font-bold mb-2">Email:</label>
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="Su email" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-slate-700 text-sm font-bold mb-2">Teléfono:</label>
+                            <input type="tel" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="Su teléfono">
+                        </div>
+                        <div>
+                            <label for="service" class="block text-slate-700 text-sm font-bold mb-2">Servicio de Interés:</label>
+                            <select id="service" name="service" class="block appearance-none w-full bg-white border border-slate-300 text-slate-700 py-3 px-4 pr-8 rounded shadow leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                <option value="">Seleccione un servicio</option>
+                                <option value="Actualizacion Cartografica">Actualización Cartográfica</option>
+                                <option value="Planes de Manejo Forestal">Planes de Manejo Forestal</option>
+                                <option value="Modelamiento Territorial">Modelamiento Territorial</option>
+                                <option value="Procesamiento de Datos">Procesamiento de Datos</option>
+                                <option value="Monitoreo Geoespacial">Monitoreo Geoespacial</option>
+                                <option value="Solucion Personalizada">Solución Personalizada</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 6.05 6.879 4.636 8.293z"/></svg>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-slate-700 text-sm font-bold mb-2">Mensaje:</label>
+                            <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded w-full py-3 px-4 text-slate-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="Describa brevemente su proyecto o necesidad" required></textarea>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <button type="submit" class="bg-sky-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-sky-500 transition-colors shadow-lg transform hover:scale-105">
+                                Enviar Solicitud
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-slate-300 py-12">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <a href="#" class="text-2xl font-bold text-white block mb-2">
+                    Geo<span class="text-sky-600">Nomad</span>
+                </a>
+                <p class="text-slate-400 text-sm">Soluciones cartográficas y SIG innovadoras desde Pichilemu para todo Chile.</p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold text-white mb-4">Enlaces Rápidos</h3>
+                <ul class="space-y-2">
+                    <li><a href="#hero" class="text-slate-300 hover:text-sky-400 transition-colors">Inicio</a></li>
+                    <li><a href="#services" class="text-slate-300 hover:text-sky-400 transition-colors">Servicios</a></li>
+                    <li><a href="#benefits" class="text-slate-300 hover:text-sky-400 transition-colors">Beneficios</a></li>
+                    <li><a href="#experience" class="text-slate-300 hover:text-sky-400 transition-colors">Experiencia</a></li>
+                    <li><a href="#contact" class="text-slate-300 hover:text-sky-400 transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold text-white mb-4">Contacto</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-center justify-center md:justify-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call text-sky-400 mr-3"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2.01l-2.43-.42a2 2 0 0 0-1.66.62l-3.66 3.66a20 20 0 0 1-10.42-10.42l3.66-3.66a2 2 0 0 0 .62-1.66l-.42-2.43A2 2 0 0 1 4.07 2H1.02A2 2 0 0 0 0 4.07a19.95 19.95 0 0 0 19.93 19.93A2 2 0 0 0 23 22v-2.05"></path></svg>
+                        <a href="tel:+56958620105" class="text-slate-300 hover:text-sky-400 transition-colors">+56 9 58620105</a>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail text-sky-400 mr-3"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <a href="mailto:jsaavedra581@gmail.com" class="text-slate-300 hover:text-sky-400 transition-colors">jsaavedra581@gmail.com</a>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin text-sky-400 mr-3"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <p class="text-slate-300">Dionisio Acevedo 811, Pichilemu, Región de O'Higgins</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-8 text-center border-t border-slate-700 pt-6">
+            <p>&copy; 2024 GeoNomad SpA. Todos los derechos reservados.</p>
+            <p class="text-sm text-slate-400 mt-2">Desde Pichilemu, Chile, para todo el territorio.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mainNavLinks = document.querySelectorAll('#mobile-menu a'); // Selecciona todos los enlaces dentro del menú móvil
+
+        // Función para alternar la visibilidad del menú móvil
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cierra el menú móvil cuando se hace clic en un enlace
+        mainNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
